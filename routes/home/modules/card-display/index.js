@@ -25,8 +25,8 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
     this.selected = [];
 
     const state = this.storeInstance.getState();
-    this.cards = state[namespaces.CARDS].cards;
-    this.allCards = state[namespaces.CARDS].allCards;
+    this.cards = state[namespaces.SET].cards;
+    this.allCards = state[namespaces.SET].allCards;
   }
 
   /**
@@ -44,8 +44,8 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
    */
   mapStateProperties() {
     const state = this.storeInstance.getState();
-    this.cards = state[namespaces.CARDS].cards;
-    this.allCards = state[namespaces.CARDS].allCards;
+    this.cards = state[namespaces.SET].cards;
+    this.allCards = state[namespaces.SET].allCards;
   }
 
   /**
@@ -121,12 +121,12 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
       let nextCards = this.allCards.slice(0, 3);
       let allCards = this.allCards.slice(3);
       storeInstance.commit({
-        namespace: namespaces.CARDS,
+        namespace: namespaces.SET,
         mutationId: 'updateCards',
         payload: remainingCards.concat(nextCards)
       });
       storeInstance.commit({
-        namespace: namespaces.CARDS,
+        namespace: namespaces.SET,
         mutationId: 'updateAllCards',
         payload: allCards
       });
@@ -140,13 +140,13 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
       if (isSet) {
         // do something for correct set
         storeInstance.commit({
-          namespace: namespaces.CARDS,
+          namespace: namespaces.SET,
           mutationId: 'findValidSet'
         });
         this.replaceCardsInView();
       } else {
         storeInstance.commit({
-          namespace: namespaces.CARDS,
+          namespace: namespaces.SET,
           mutationId: 'findInvalidSet'
         });
       }
@@ -163,7 +163,7 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
    */
   select(card) {
     storeInstance.commit({
-      namespace: namespaces.CARDS,
+      namespace: namespaces.SET,
       mutationId: 'clearMessageText'
     });
     const elm = this.shadowRoot.querySelector('#card' + card.id);

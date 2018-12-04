@@ -1,5 +1,5 @@
 const namespaces = {
-  CARDS: 'cards'
+  SET: 'cards'
 };
 
 export {

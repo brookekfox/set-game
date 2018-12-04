@@ -1,3 +1,11 @@
 @import url('./00-reset/index.css');
 @import url('./01-font/index.css');
 @import url('./02-utility/index.css');
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}

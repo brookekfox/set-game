@@ -4,7 +4,7 @@ import mutations from './mutations';
 import decorators from './decorators';
 
 const sdo = {
-  namespace: namespaces.CARDS,
+  namespace: namespaces.SET,
   mutations,
   decorators
 };

@@ -24,38 +24,37 @@ class HomePage extends mapStatePropertiesMixin(AoflElement) {
   constructor() {
     super();
     this.storeInstance = storeInstance;
-
     let allCards = this.shuffle(cards);
     let currentCards = allCards.splice(0, 12);
     storeInstance.commit({
-      namespace: namespaces.CARDS,
+      namespace: namespaces.SET,
       mutationId: 'updateAllCards',
       payload: allCards
     });
     storeInstance.commit({
-      namespace: namespaces.CARDS,
+      namespace: namespaces.SET,
       mutationId: 'updateCards',
       payload: currentCards
     });
   }
 
-    /**
-     * Shuffles array in place.
-     * @param {Array} items An array containing the items.
-     * @return {Array} shuffled
-     */
-    shuffle(items) {
-      let j;
-      let x;
-      let i;
-      for (i = items.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = items[i];
-        items[i] = items[j];
-        items[j] = x;
-      }
-      return items;
+  /**
+   * Shuffles array in place.
+   * @param {Array} items An array containing the items.
+   * @return {Array} shuffled
+   */
+  shuffle(items) {
+    let j;
+    let x;
+    let i;
+    for (i = items.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = items[i];
+      items[i] = items[j];
+      items[j] = x;
     }
+    return items;
+  }
 
   /**
    *
@@ -74,7 +73,8 @@ class HomePage extends mapStatePropertiesMixin(AoflElement) {
       allCards: {type: Array, attribute: false},
       messageText: {type: String, attribute: false},
       numberOfSetsFound: {type: Number, attribute: false},
-      numberOfSetsToFind: {type: Number, attribute: false}
+      numberOfSetsToFind: {type: Number, attribute: false},
+      $isComplete: {type: Boolean, attribute: false}
     };
   }
 
@@ -83,10 +83,11 @@ class HomePage extends mapStatePropertiesMixin(AoflElement) {
    */
   mapStateProperties() {
     const state = this.storeInstance.getState();
-    this.cards = state[namespaces.CARDS].cards;
-    this.messageText = state[namespaces.CARDS].messageText;
-    this.numberOfSetsFound = state[namespaces.CARDS].numberOfSetsFound;
-    this.numberOfSetsToFind = state[namespaces.CARDS].numberOfSetsToFind;
+    this.cards = state[namespaces.SET].cards;
+    this.messageText = state[namespaces.SET].messageText;
+    this.numberOfSetsFound = state[namespaces.SET].numberOfSetsFound;
+    this.numberOfSetsToFind = state[namespaces.SET].numberOfSetsToFind;
+    this.$isComplete = state[namespaces.SET].$isComplete;
   }
 
   /**

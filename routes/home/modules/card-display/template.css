@@ -1,10 +1,10 @@
 :host {
   display: inline-block;
-  width: 100%;
+  width: 60%;
 }
 
 .card-container {
-  width: 80%;
+  width: 100%;
   max-width: 690px;
   min-width: 520px;
   margin: 0 auto;
@@ -121,8 +121,8 @@
 }
 
 .chevron {
-  -webkit-clip-path: polygon(50% 50%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  clip-path: polygon(50% 50%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: polygon(50% 45%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+clip-path: polygon(50% 45%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 .diamond {

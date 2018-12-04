@@ -16,7 +16,7 @@ const config = {
   rules: {
     'comma-dangle': ['error', 'never'],
     'max-len': ['error', {
-      code: 120,
+      code: 80,
       tabWidth: 2,
       ignoreComments: true,
       ignoreUrls: true,

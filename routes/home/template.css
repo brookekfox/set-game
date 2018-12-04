@@ -1,13 +1,29 @@
 :host {
   display: block;
+  position: relative;
+}
+
+.messages-container {
+  width: 20%;
+  max-width: 400px;
+  min-width: 200px;
+  border: 1px solid blue;
+  border-radius: 15px;
+  padding: 20px 5px;
 }
 
 .message, .sets-found {
   height: 30px;
-  width: 80%;
-  max-width: 690px;
-  min-width: 520px;
+  width: 100%;
   margin: 0 auto;
   font-size: 20px;
   text-align: center;
+}
+
+.message.valid {
+  color: #00A28C;
+}
+
+.message.invalid {
+  color: #C33C54;
 }

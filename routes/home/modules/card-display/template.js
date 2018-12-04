@@ -18,5 +18,4 @@ export default (ctrl, html) => html`
       )
     }
   </div>
-  <div class="diamond"></div>
 `;
