@@ -4,7 +4,8 @@ export default (ctrl, html) => html`
       ctrl.cards.map(
         (card) =>
           html`
-            <div class="card u-layout vertical center-center u-inline-m u-stack-m ${ctrl.colors[card.color]}">
+            <div class="card u-layout vertical center-center u-inline-m u-stack-m ${ctrl.colors[card.color]}" id="card${card.id}"
+              @click="${(e) => ctrl.select(card)}">
               ${card.count.map((num) => html`
                 <div class="pip u-stack-s
                   ${ctrl.colors[card.color]}

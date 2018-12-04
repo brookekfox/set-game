@@ -16,21 +16,25 @@
   border-radius: 10px;
   border: 3px solid;
   position: relative;
+  cursor: pointer;
 }
 
 .purple {
   color: #723D46;
   border-color: #723D46;
+  background-color: rgba(114,61,70,0.01);
 }
 
 .orange {
   color: #F0945D;
   border-color: #F0945D;
+  background-color: rgba(240,148,93,0.01);
 }
 
 .green {
   color: #00A28C;
   border-color: #00A28C;
+  background-color: rgba(0,162,140,0.01);
 }
 
 .pip {
@@ -58,8 +62,8 @@
     -45deg,
     #723D46,
     #723D46 3px,
-    #fff 3px,
-    #fff 10px
+    rgba(114,61,70,0.1) 3px,
+    rgba(114,61,70,0.1) 10px
   );
 }
 
@@ -69,8 +73,8 @@
     -45deg,
     #F0945D,
     #F0945D 3px,
-    #fff 3px,
-    #fff 10px
+    rgba(240,148,93,0.1) 3px,
+    rgba(240,148,93,0.1) 10px
   );
 }
 
@@ -80,14 +84,14 @@
     -45deg,
     #00A28C,
     #00A28C 3px,
-    #fff 3px,
-    #fff 10px
+    rgba(0,162,140,0.1) 3px,
+    rgba(0,162,140,0.1) 10px
   );
 }
 
 .dots.purple {
   border: 1px solid #723D46;
-  background-color:#fff;
+  background-color: rgba(114,61,70,0.1);
   background-image: radial-gradient(#723D46 15%, transparent 16%),
   radial-gradient(#723D46 15%, transparent 16%);
   background-size: 8px 8px;
@@ -96,7 +100,7 @@
 
 .dots.orange {
   border: 1px solid #F0945D;
-  background-color:#fff;
+  background-color: rgba(240,148,93,0.1);
   background-image: radial-gradient(#F0945D 15%, transparent 16%),
   radial-gradient(#F0945D 15%, transparent 16%);
   background-size: 8px 8px;
@@ -105,7 +109,7 @@
 
 .dots.green {
   border: 1px solid #00A28C;
-  background-color:#fff;
+  background-color: rgba(0,162,140,0.1);
   background-image: radial-gradient(#00A28C 15%, transparent 16%),
   radial-gradient(#00A28C 15%, transparent 16%);
   background-size: 8px 8px;
@@ -124,4 +128,8 @@
 .diamond {
   -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.selected {
+  box-shadow: 4px 4px 4px 4px;
 }

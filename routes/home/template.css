@@ -2,24 +2,12 @@
   display: block;
 }
 
-.card {
-  height: 200px;
-  width: 150px;
-  border-radius: 10px;
-  border: 1px solid;
-}
-
-.deeppink {
-  color: deeppink;
-  border-color: deeppink;
-}
-
-.orange {
-  color: orange;
-  border-color: orange;
-}
-
-.green {
-  color: green;
-  border-color: green;
+.message, .sets-found {
+  height: 30px;
+  width: 80%;
+  max-width: 690px;
+  min-width: 520px;
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: center;
 }

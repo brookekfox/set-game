@@ -9,7 +9,8 @@ import styles from './template.css';
 import {storeInstance} from '@aofl/store';
 import {mapStatePropertiesMixin} from '@aofl/map-state-properties-mixin';
 import './modules/cards-sdo';
-// import {namespaces} from '../../modules/constants-enumerate';
+import {namespaces} from '../../modules/constants-enumerate';
+import {cards} from './modules/cards-sdo/cards-setup';
 
 /**
  *
@@ -23,7 +24,38 @@ class HomePage extends mapStatePropertiesMixin(AoflElement) {
   constructor() {
     super();
     this.storeInstance = storeInstance;
+
+    let allCards = this.shuffle(cards);
+    let currentCards = allCards.splice(0, 12);
+    storeInstance.commit({
+      namespace: namespaces.CARDS,
+      mutationId: 'updateAllCards',
+      payload: allCards
+    });
+    storeInstance.commit({
+      namespace: namespaces.CARDS,
+      mutationId: 'updateCards',
+      payload: currentCards
+    });
   }
+
+    /**
+     * Shuffles array in place.
+     * @param {Array} items An array containing the items.
+     * @return {Array} shuffled
+     */
+    shuffle(items) {
+      let j;
+      let x;
+      let i;
+      for (i = items.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = items[i];
+        items[i] = items[j];
+        items[j] = x;
+      }
+      return items;
+    }
 
   /**
    *
@@ -38,7 +70,11 @@ class HomePage extends mapStatePropertiesMixin(AoflElement) {
    */
   static get properties() {
     return {
-      // cards: {type: Number, attribute: false}
+      cards: {type: Array, attribute: false},
+      allCards: {type: Array, attribute: false},
+      messageText: {type: String, attribute: false},
+      numberOfSetsFound: {type: Number, attribute: false},
+      numberOfSetsToFind: {type: Number, attribute: false}
     };
   }
 
@@ -46,8 +82,11 @@ class HomePage extends mapStatePropertiesMixin(AoflElement) {
    *
    */
   mapStateProperties() {
-    // const state = this.storeInstance.getState();
-    // this.cards = state[namespaces.CARDS].cards;
+    const state = this.storeInstance.getState();
+    this.cards = state[namespaces.CARDS].cards;
+    this.messageText = state[namespaces.CARDS].messageText;
+    this.numberOfSetsFound = state[namespaces.CARDS].numberOfSetsFound;
+    this.numberOfSetsToFind = state[namespaces.CARDS].numberOfSetsToFind;
   }
 
   /**
