@@ -1,6 +1,7 @@
 @import url('./00-reset/index.css');
 @import url('./01-font/index.css');
 @import url('./02-utility/index.css');
+@import url('./03-card/index.css');
 
 .hide {
   visibility: hidden;

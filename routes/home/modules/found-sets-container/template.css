@@ -1,0 +1,28 @@
+:host {
+  display: inline-block;
+}
+
+.found-sets-container {
+  width: 50vw;
+  max-width: 1000px;
+  min-width: 300px;
+  border: 1px solid blue;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.found-set-card {
+  height: 80px;
+  width: 60px;
+  border-radius: 8px;
+  border: 1px solid;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.pip {
+  height: 20px;
+  width: 40px;
+  border-width: 1px;
+}

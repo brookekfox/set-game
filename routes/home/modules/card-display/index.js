@@ -153,7 +153,8 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
     if (isSet) {
       storeInstance.commit({
         namespace: namespaces.SET,
-        mutationId: 'findValidSet'
+        mutationId: 'findValidSet',
+        payload: this.selected
       });
       this.replaceCardsInView();
     } else {
