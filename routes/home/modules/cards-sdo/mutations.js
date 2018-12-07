@@ -6,15 +6,18 @@ const mutations = {
         cards: [],
         messageText: '',
         numberOfSetsFound: 0,
-        numberOfSetsToFind: 10
+        numberOfSetsToFind: 10,
+        foundSets: []
       },
       payload
     );
   },
-  findValidSet(subState) {
+  findValidSet(subState, validSet) {
+    let foundSets = subState.foundSets.concat([validSet]);
     return Object.assign({}, subState, {
       messageText: 'You found a valid set!',
-      numberOfSetsFound: subState.numberOfSetsFound + 1
+      numberOfSetsFound: subState.numberOfSetsFound + 1,
+      foundSets
     });
   },
   findInvalidSet(subState) {
