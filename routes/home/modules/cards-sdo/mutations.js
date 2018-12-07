@@ -7,7 +7,8 @@ const mutations = {
         messageText: '',
         numberOfSetsFound: 0,
         numberOfSetsToFind: 10,
-        foundSets: []
+        foundSets: [],
+        selected: []
       },
       payload
     );
@@ -27,6 +28,20 @@ const mutations = {
   },
   updateCards(subState, cards) {
     return Object.assign({}, subState, {cards});
+  },
+  selectCard(subState, card) {
+    let selected = subState.selected.concat([card]);
+    return Object.assign({}, subState, {selected});
+  },
+  unselectCard(subState, cardId) {
+    return Object.assign({}, subState, {
+      selected: subState.selected.filter((c) => {
+        return c.id !== cardId;
+      })
+    });
+  },
+  emptySelectedCards(subState) {
+    return Object.assign({}, subState, {selected: []});
   },
   updateAllCards(subState, allCards) {
     return Object.assign({}, subState, {allCards});
