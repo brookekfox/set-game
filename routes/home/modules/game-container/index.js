@@ -8,13 +8,13 @@ import '../../modules/cards-sdo';
 import {namespaces} from '../../../../modules/constants-enumerate';
 
 /**
- * @summary CardDisplay
- * @class CardDisplay
+ * @summary GameContainer
+ * @class GameContainer
  * @extends {AoflElement}
  */
-class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
+class GameContainer extends mapStatePropertiesMixin(AoflElement) {
   /**
-   * Creates an instance of CardDisplay.
+   * Creates an instance of GameContainer.
    */
   constructor() {
     super();
@@ -52,7 +52,7 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
    * @readonly
    */
   static get is() {
-    return 'card-display';
+    return 'game-container';
   }
 
   /**
@@ -196,6 +196,6 @@ class CardDisplay extends mapStatePropertiesMixin(AoflElement) {
   }
 }
 
-window.customElements.define(CardDisplay.is, CardDisplay);
+window.customElements.define(GameContainer.is, GameContainer);
 
-export default CardDisplay;
+export default GameContainer;

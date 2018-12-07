@@ -1,4 +1,4 @@
-import './modules/card-display';
+import './modules/game-container';
 import './modules/congrats-banner';
 
 export const template = (ctrl, html) => html`
@@ -7,7 +7,7 @@ export const template = (ctrl, html) => html`
       <div class="sets-found">${ctrl.numberOfSetsFound} / ${ctrl.numberOfSetsToFind} Sets Found</div>
       <div class="message">${ctrl.messageText}</div>
     </div>
-    <card-display></card-display>
+    <game-container></game-container>
     <congrats-banner class="${ctrl.$isComplete ? 'show' : 'hide'}"></congrats-banner>
   </div>
 `;
